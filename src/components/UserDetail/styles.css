@@ -1,0 +1,21 @@
+/* styles.css */
+
+.user-detail {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  
+  .user-detail-item {
+    margin-bottom: 10px;
+  }
+  
+  .user-detail-label {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .user-detail-value {
+    font-size: 18px;
+    color: #333;
+  }

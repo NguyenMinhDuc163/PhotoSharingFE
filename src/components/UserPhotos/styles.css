@@ -1,0 +1,75 @@
+.comment-list {
+    margin-bottom: 16px;
+  }
+  
+  .comment-list .user-link {
+    font-weight: bold;
+    color: #385898;
+    text-decoration: none;
+  }
+  
+  .comment-list .user-link:hover {
+    text-decoration: underline;
+  }
+  
+  .comment-list .comment-body {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .comment-list .edit-comment-textfield {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .comment-list .edit-button,
+  .comment-list .delete-button,
+  .comment-list .save-button ,
+  .comment-list .cancel-button
+   {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 4px;
+    font-size: 12px;
+    color: #385898;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .comment-list .edit-button:hover,
+  .comment-list .delete-button:hover,
+  .comment-list .save-button:hover, 
+  .comment-list .cancel-button:hover
+  {
+    text-decoration: underline;
+  }
+  
+  .add-comment-textfield {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .post-comment-button {
+    margin-bottom: 16px;
+  }
+  
+  .edit-title-button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 4px;
+    font-size: 120px; 
+    color: #385898;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .edit-title-button:hover {
+    color: #365899;
+    text-decoration: none;
+    background-color: #e9ebee;
+    border-radius: 3px;
+  }
+  

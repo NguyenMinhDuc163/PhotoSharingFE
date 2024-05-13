@@ -1,0 +1,16 @@
+.list {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.list-item {
+    transition: background-color 0.3s ease;
+}
+
+.list-item:hover {
+    background-color: #e0e0e0;
+}
+.list-item--active {
+    background-color: #d0d0d0;
+}
