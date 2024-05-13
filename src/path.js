@@ -1,2 +1,2 @@
-// export const path = "https://m7nkmx-8081.csb.app/";
-export const path = "http://localhost:8081/";
+export const path = "https://6f4ggt-8081.csb.app";
+// export const path = "http://localhost:8081/";
