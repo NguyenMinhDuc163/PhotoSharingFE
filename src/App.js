@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from './components/Profile';
 import UploadPhoto from './components/UploadFile';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword'; // Import ForgotPassword component
 import { fetchModel } from './lib/fetchModelData';
 import { path } from './path';
 
@@ -56,6 +57,7 @@ const App = (props) => {
                       <>
                         <Route path="/login" element={<Login setAuth={setAuth} />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Thêm route cho ForgotPassword */}
                         <Route path="*" element={<Navigate to="/login" />} />
                       </>
                   )}
