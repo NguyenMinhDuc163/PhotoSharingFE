@@ -15,9 +15,17 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!loginName || !password || !confirmPassword || !firstName || !lastName) {
+      setErrorMessage("All fields must be filled");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match");
+      return;
+    }
+    if (password.length < 6 || !/[A-Z]/.test(password)) {
+      setErrorMessage("Password must be at least 6 characters and contain at least one uppercase letter");
       return;
     }
 
@@ -49,65 +57,65 @@ function Register() {
   };
 
   return (
-    <Container>
-      <h3>Register</h3>
-      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-      {successMessage && <Alert variant="success">{successMessage}</Alert>}
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="loginName">
-          <Form.Label>Login Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter login name"
-            value={loginName}
-            onChange={(e) => setLoginName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="confirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="firstName">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter first name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="lastName">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter last name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Register
-        </Button>
-      </Form>
-    </Container>
+      <Container>
+        <h3>Register</h3>
+        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+        {successMessage && <Alert variant="success">{successMessage}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="loginName">
+            <Form.Label>Login Name</Form.Label>
+            <Form.Control
+                type="text"
+                placeholder="Enter login name"
+                value={loginName}
+                onChange={(e) => setLoginName(e.target.value)}
+                required
+            />
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
+          </Form.Group>
+          <Form.Group controlId="confirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+            />
+          </Form.Group>
+          <Form.Group controlId="firstName">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+                type="text"
+                placeholder="Enter first name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+            />
+          </Form.Group>
+          <Form.Group controlId="lastName">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+                type="text"
+                placeholder="Enter last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Register
+          </Button>
+        </Form>
+      </Container>
   );
 }
 
