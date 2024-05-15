@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider } from '../../auth/firebaseConfig';
+import { auth, googleProvider, githubProvider } from '../../auth/firebaseConfig';
 import { signInWithPopup } from "firebase/auth";
 import { path } from '../../path';
 import './../../App.css'; // Import CSS
+import googleLogo from './../../images/g-logo.png'; // Import Google logo
+import githubLogo from './../../images/github-logo.png'; // Import GitHub logo
 
 function Login({ setAuth }) {
   const [loginName, setLoginName] = useState('');
@@ -43,8 +45,26 @@ function Login({ setAuth }) {
     }
   };
 
+  const handleGithubLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, githubProvider);
+      const user = result.user;
+      const token = await user.getIdToken();
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      setAuth({ loggedIn: true, user });
+      navigate(`/users/${user.uid}`);
+    } catch (error) {
+      console.error("Error logging in with GitHub", error);
+    }
+  };
+
   const handleRegisterRedirect = () => {
     navigate('/register');
+  };
+
+  const handleForgotPasswordRedirect = () => {
+    navigate('/forgot-password');
   };
 
   return (
@@ -62,11 +82,18 @@ function Login({ setAuth }) {
           <Button variant="primary" type="submit" className="primary">Login</Button>
         </Form>
         <div className="button-group">
-          <div className="google-btn" onClick={handleGoogleLogin}>
-            {/*<img src="/images/g-logo.png" alt="Google logo" />*/}
+          <div className="social-btn google-btn" onClick={handleGoogleLogin}>
+            <img src={googleLogo} alt="Google logo" />
             <span>Login with Google</span>
           </div>
+          <div className="social-btn github-btn" onClick={handleGithubLogin}>
+            <img src={githubLogo} alt="GitHub logo" />
+            <span>Login with GitHub</span>
+          </div>
+        </div>
+        <div className="action-buttons">
           <Button variant="secondary" onClick={handleRegisterRedirect} className="secondary">Register</Button>
+          <Button variant="secondary" onClick={handleForgotPasswordRedirect} className="secondary">Forgot Password</Button>
         </div>
       </Container>
   );
